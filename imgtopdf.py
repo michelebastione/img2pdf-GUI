@@ -10,7 +10,7 @@ def pdfy(path, files):
 
 
 class Finestra(wx.Frame):
-    def __init__(self, par = None, tit = "Convertitore di immagini in PDF", dim = (750, 200)):
+    def __init__(self, par = None, tit = "Images to PDF converter", dim = (750, 200)):
         super(Finestra, self).__init__(par, title = tit, size = dim)
         self.Center()
         self.pannello = wx.Panel(self)
