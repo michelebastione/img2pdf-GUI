@@ -16,19 +16,19 @@ class Finestra(wx.Frame):
         self.pannello = wx.Panel(self)
         self.pannello.SetBackgroundColour('white')
         self.carattere = wx.Font(16, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_LIGHT)
-        wx.StaticText(self.pannello, label = 'File di origine: ', pos = (10, 30)).SetFont(self.carattere)
-        wx.StaticText(self.pannello, label = 'File di destinazione: ', pos = (10, 80)).SetFont(self.carattere)
+        wx.StaticText(self.pannello, label = 'Origin files: ', pos = (10, 30)).SetFont(self.carattere)
+        wx.StaticText(self.pannello, label = 'Destination file: ', pos = (10, 80)).SetFont(self.carattere)
         self.TC = wx.TextCtrl(self.pannello, pos = (250,80), size = (350, 26), style = wx.TE_READONLY)
-        self.b1 = wx.Button(self.pannello, label = "Sfoglia", pos = (160, 30))
-        self.b2 = wx.Button(self.pannello, label = "Sfoglia", pos = (625, 80))
+        self.b1 = wx.Button(self.pannello, label = "Browse", pos = (160, 30))
+        self.b2 = wx.Button(self.pannello, label = "Browse", pos = (625, 80))
         self.b1.Bind(wx.EVT_BUTTON, self.bot_1)
         self.b2.Bind(wx.EVT_BUTTON, self.bot_2)
         self.b3 = wx.Button(self.pannello, label = "Converti", pos = (350, 125))
         self.b3.Disable()
         self.b3.Bind(wx.EVT_BUTTON, self.converti)
         self.Show()
-        self.dir_1 = wx.FileDialog(self, 'File da convertire', style = wx.FD_OPEN | wx.FD_MULTIPLE)
-        self.dir_2 = wx.FileDialog(self, 'Cartella e nome del file di destinazione', wildcard = "PDF files (*.pdf)|*.pdf", style = wx.FD_SAVE)
+        self.dir_1 = wx.FileDialog(self, 'Images to convert', style = wx.FD_OPEN | wx.FD_MULTIPLE)
+        self.dir_2 = wx.FileDialog(self, 'Folder and name of the destination file', wildcard = "PDF files (*.pdf)|*.pdf", style = wx.FD_SAVE)
         self.Bind(wx.EVT_CLOSE, self.quit)
 
 
@@ -51,7 +51,7 @@ class Finestra(wx.Frame):
 
     def converti(self, e):
         pdfy(self.cd, self.fo)
-        wx.MessageDialog(self, message = 'Il file è stato creato!', caption = "Operazione terminata", style = wx.OK | wx.ICON_WARNING).ShowModal()
+        wx.MessageDialog(self, message = 'The file has been created!', caption = "Operation concluded", style = wx.OK | wx.ICON_WARNING).ShowModal()
         self.TC.Clear()
         self.b3.Disable()
 
