@@ -58,9 +58,7 @@ class Finestra(wx.Frame):
     def quit(self, e):
         sys.exit()
 
-
-
-app = wx.App()
-f=Finestra()
-app.MainLoop()
-
+if __name__ == "__main__":
+    app = wx.App()
+    f=Finestra()
+    app.MainLoop()
